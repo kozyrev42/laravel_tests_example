@@ -3,3 +3,8 @@
 `php -S 127.0.0.1:8000 -t public`
 
 1. Установка проекта: `composer create-project --prefer-dist laravel/laravel laravel_tests_example`
+
+2. Базу данных использую "laravel_redis_base";
+- создал модель и фабрику: `php artisan make:model Post -f`
+
+- редактирован сид DatabaseSeeder, для заполнения таблицы "posts"
