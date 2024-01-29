@@ -8,3 +8,9 @@
 - создал модель и фабрику: `php artisan make:model Post -f`
 
 - редактирован сид DatabaseSeeder, для заполнения таблицы "posts"
+
+3. Генерим файл-тест:
+`php artisan make:test HomePageTest`
+
+- запуск запуск тестов:
+`php artisan test`
