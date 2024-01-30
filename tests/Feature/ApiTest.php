@@ -32,4 +32,27 @@ class ApiTest extends TestCase
             ]
         ]);
     }
+
+    /**
+     * Тест для проверки роута: POST '/posts/create'
+     * Метод: createPost
+     */
+
+    public function test_create_post()
+    {
+        $response = $this->post('/api/posts/create', [
+            'user_id' => 111,
+            'title' => 'Test title 111',
+            'content' => 'Test content 111',
+        ]);
+
+        // проверяем что ответ приходит с кодом 200
+        $response->assertStatus(200);
+
+        // проверяем что пост создан с user_id = 111
+        $response->assertJsonPath('data.user_id', 111);
+
+        // проверяем что в базе данных, в таблице posts, есть пост с title = 'Test title 111'
+        $this->assertDatabaseHas('posts', ['title' => 'Test title 111']);
+    }
 }
